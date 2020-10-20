@@ -10,11 +10,11 @@ node("slave") {
     }
 
     withEnv([
-            "PATH+TF=${tool 'kubectl-1.19.3'}",
+            "PATH+KUBECTL=${tool 'kubectl-1.19.3'}",
     ]) {
 
         stage("${LABEL} Dependencies") {
-            sh("kubectl get nodes")
+            sh("kubectl version --client")
         }
     }
 }
